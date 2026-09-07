@@ -1,0 +1,6 @@
+{
+  "name": "Dr. Vivek Arora - Pulmonologist Bhopal",
+  "description": "Premium medical clinic website for Dr. Vivek Arora, Pulmonologist & Chest Specialist in Bhopal, Madhya Pradesh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,223 @@
+{
+  "entities": {
+    "DoctorProfile": {
+      "title": "DoctorProfile",
+      "description": "Medical profile and verified credentials for Dr. Vivek Arora",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "title": { "type": "string" },
+        "specialty": { "type": "string" },
+        "location": { "type": "string" },
+        "qualifications": { "type": "string" },
+        "registrationNumber": { "type": "string" },
+        "experienceYears": { "type": "string" },
+        "languages": { "type": "string" },
+        "rating": { "type": "string" },
+        "reviewCount": { "type": "string" },
+        "headline": { "type": "string" },
+        "subheadline": { "type": "string" },
+        "bio": { "type": "string" },
+        "photoUrl": { "type": "string" },
+        "whyChooseItems": { "type": "array" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "specialty", "location"]
+    },
+    "ClinicProfile": {
+      "title": "ClinicProfile",
+      "description": "Clinic location, contact details, and timing",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "clinicName": { "type": "string" },
+        "location": { "type": "string" },
+        "address": { "type": "string" },
+        "phone": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "email": { "type": "string" },
+        "consultationTimings": { "type": "string" },
+        "days": { "type": "string" },
+        "googleMapsEmbedUrl": { "type": "string" },
+        "googleMapsDirectionsUrl": { "type": "string" },
+        "isAddressVerified": { "type": "boolean" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["clinicName", "location", "phone"]
+    },
+    "ServiceItem": {
+      "title": "ServiceItem",
+      "description": "Clinical pulmonology service",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "shortDescription": { "type": "string" },
+        "fullDescription": { "type": "string" },
+        "icon": { "type": "string" },
+        "availableAtClinic": { "type": "boolean" },
+        "order": { "type": "number" },
+        "enabled": { "type": "boolean" }
+      },
+      "required": ["id", "title", "shortDescription", "enabled"]
+    },
+    "ConditionTreatment": {
+      "title": "ConditionTreatment",
+      "description": "Respiratory disease or symptom educational information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "shortSummary": { "type": "string" },
+        "overview": { "type": "string" },
+        "commonSymptoms": { "type": "array" },
+        "careApproach": { "type": "string" },
+        "icon": { "type": "string" },
+        "order": { "type": "number" },
+        "enabled": { "type": "boolean" }
+      },
+      "required": ["id", "name", "shortSummary", "enabled"]
+    },
+    "PatientReview": {
+      "title": "PatientReview",
+      "description": "Verified patient feedback and ratings",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "patientName": { "type": "string" },
+        "rating": { "type": "number" },
+        "reviewDate": { "type": "string" },
+        "comment": { "type": "string" },
+        "conditionTreated": { "type": "string" },
+        "isVerified": { "type": "boolean" },
+        "isApproved": { "type": "boolean" },
+        "isPlaceholder": { "type": "boolean" }
+      },
+      "required": ["id", "patientName", "rating", "comment", "isApproved"]
+    },
+    "AppointmentRequest": {
+      "title": "AppointmentRequest",
+      "description": "Patient consultation booking request",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "patientName": { "type": "string" },
+        "phone": { "type": "string" },
+        "age": { "type": "string" },
+        "preferredDate": { "type": "string" },
+        "preferredTime": { "type": "string" },
+        "reason": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "type": "string", "enum": ["New", "Confirmed", "Completed", "Cancelled"] },
+        "createdAt": { "type": "string" },
+        "adminNotes": { "type": "string" }
+      },
+      "required": ["id", "patientName", "phone", "preferredDate", "status"]
+    },
+    "ContactInquiry": {
+      "title": "ContactInquiry",
+      "description": "General inquiry from contact form or phone callback",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "type": "string", "enum": ["New", "Contacted", "Resolved"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "phone", "status"]
+    },
+    "FaqItem": {
+      "title": "FaqItem",
+      "description": "Frequently asked question regarding pulmonology care",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "question": { "type": "string" },
+        "answer": { "type": "string" },
+        "category": { "type": "string" },
+        "order": { "type": "number" },
+        "enabled": { "type": "boolean" }
+      },
+      "required": ["id", "question", "answer", "enabled"]
+    },
+    "GalleryImage": {
+      "title": "GalleryImage",
+      "description": "Photo of clinic, equipment, or doctor",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "url": { "type": "string" },
+        "category": { "type": "string", "enum": ["Clinic", "Doctor", "Facility", "Diagnostics"] },
+        "isFeatured": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "title", "url"]
+    },
+    "WebsiteSettings": {
+      "title": "WebsiteSettings",
+      "description": "Global website configuration, SEO, and contact channels",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "siteName": { "type": "string" },
+        "tagline": { "type": "string" },
+        "primaryPhone": { "type": "string" },
+        "whatsappNumber": { "type": "string" },
+        "emergencyNotice": { "type": "string" },
+        "seoTitle": { "type": "string" },
+        "seoDescription": { "type": "string" },
+        "googleMapsUrl": { "type": "string" },
+        "analyticsId": { "type": "string" },
+        "socialLinks": { "type": "object" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["siteName", "primaryPhone", "whatsappNumber"]
+    }
+  },
+  "firestore": {
+    "/doctor/profile": {
+      "schema": { "$ref": "#/entities/DoctorProfile" },
+      "description": "Single document holding Dr. Vivek Arora's verified profile data"
+    },
+    "/clinic/profile": {
+      "schema": { "$ref": "#/entities/ClinicProfile" },
+      "description": "Single document holding Chest Care Clinic details and hours"
+    },
+    "/services/{serviceId}": {
+      "schema": { "$ref": "#/entities/ServiceItem" },
+      "description": "Collection of respiratory and pulmonology services"
+    },
+    "/treatments/{conditionId}": {
+      "schema": { "$ref": "#/entities/ConditionTreatment" },
+      "description": "Collection of pulmonary conditions and educational treatment overviews"
+    },
+    "/reviews/{reviewId}": {
+      "schema": { "$ref": "#/entities/PatientReview" },
+      "description": "Collection of patient reviews with admin moderation"
+    },
+    "/appointments/{appointmentId}": {
+      "schema": { "$ref": "#/entities/AppointmentRequest" },
+      "description": "Private collection of appointment requests, viewable only by clinic admin"
+    },
+    "/inquiries/{inquiryId}": {
+      "schema": { "$ref": "#/entities/ContactInquiry" },
+      "description": "Private collection of website inquiries, viewable only by clinic admin"
+    },
+    "/faqs/{faqId}": {
+      "schema": { "$ref": "#/entities/FaqItem" },
+      "description": "Collection of frequently asked questions and answers"
+    },
+    "/gallery/{imageId}": {
+      "schema": { "$ref": "#/entities/GalleryImage" },
+      "description": "Collection of clinic photos and doctor imagery"
+    },
+    "/settings/global": {
+      "schema": { "$ref": "#/entities/WebsiteSettings" },
+      "description": "Global website settings and SEO parameters"
+    }
+  }
+}
